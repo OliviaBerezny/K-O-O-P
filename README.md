@@ -1,2 +1,5 @@
 # K-O-O-P
-We are doing things
+## Kool Object Oriented Programmers
+
+### Medicine Tracking Simulation
+Tracking doses of medicines given to patients by doctors.
