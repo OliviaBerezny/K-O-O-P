@@ -26,11 +26,13 @@ void main()
 	int TempInt3;
 	int ID;
 	bool PassFlag;
+	bool RetFlag;
 	int Pass;
 	string Signed;
 	int UserSwitch;
 	int HSwitch;
 	int SeeIDH;
+	bool error;
 	Shelf S1(01);
 	Shelf S2(02);
 	Shelf S3(11);
@@ -40,36 +42,66 @@ void main()
 
 	while (1)
 	{
-		PassFlag = 0;
-		while (PassFlag == 0)
-		{
-			while (1)
+			PassFlag = 0;
+			while (PassFlag == 0)
 			{
-				cout << "Enter ID \n";
-				cin >> ID;
-				cout << "Enter Password \n";
-				cin >> Pass;
-				Pass = Hash(Pass);
-
-				if (ID > Hashed.size())
+				while (1)
 				{
-					cout << "ID Or Password Incorrect" << endl;
-					break;
-				}
+					do {
+						cout << "Enter ID \n";
 
-				if (Hashed[ID] != Pass)
-				{
-					cout << "ID Or Password Incorrect" << endl;
-				}
+						cin >> ID;
+						if (cin.fail())
+						{
+							ID = 000;
+							error = 1;
+							cin.clear();
+							cin.ignore(80, '\n');
+						}
+						else
+						{
+							error = 0;
+						};
+						cout << "Enter Password \n";
+						cin >> Pass;
+						if (cin.fail())
+						{
+							Pass = 000;
+							error = 1;
+							cin.clear();
+							cin.ignore(80, '\n');
+						}
+						else
+						{
+							error = 0;
+						};
+						if (error == 1)
+						{
+							cout << "Error with details, try again \n";
+						}
+					} while (error == 1);
 
-				else
-				{
-					PassFlag = 1;
+
+					Pass = Hash(Pass);
+					if (ID > Hashed.size() - 1)
+					{
+						cout << "Error with details, try again \n" << endl;
+						break;
+					}
+
+					if (Hashed[ID] != Pass)
+					{
+						cout << "Error with details, try again \n" << endl;
+					}
+
+					else
+					{
+						PassFlag = 1;
+						break;
+					}
 					break;
 				}
 			}
-		}
-
 		cout << "\nLogin Successful." << endl;
 		Signed = Names[ID];
 		cout << "Logged in as : " << Signed << endl;
@@ -197,19 +229,19 @@ void main()
 					switch (TempInt)
 					{
 					case 01:
-						S1.ReturnMed(TempInt2, TempInt3);
+						RetFlag = S1.ReturnMed(TempInt2, TempInt3);
 						History[ID].push_back("Returned contents to shelf 01");
 						break;
 					case 02:
-						S2.ReturnMed(TempInt2, TempInt3);
+						RetFlag = S2.ReturnMed(TempInt2, TempInt3);
 						History[ID].push_back("Returned contents to shelf 02");
 						break;
 					case 11:
-						S3.ReturnMed(TempInt2, TempInt3);
+						RetFlag = S3.ReturnMed(TempInt2, TempInt3);
 						History[ID].push_back("Returned contents to shelf 11");
 						break;
 					case 12:
-						S4.ReturnMed(TempInt2, TempInt3);
+						RetFlag = S4.ReturnMed(TempInt2, TempInt3);
 						History[ID].push_back("Returned contents to shelf 12");
 						break;
 					default:
@@ -353,7 +385,7 @@ void main()
 				if (ID != 0)
 				{
 					break;
-				}
+				} 
 				cout << "Enter Shelf ID" << endl;
 				cin >> TempInt;
 				cout << "Enter Medicine Position" << endl;

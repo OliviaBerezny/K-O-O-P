@@ -21,7 +21,7 @@ public:
 	void AddMedicine(Medicine);
 	void ListContents();
 	void RemoveMed(int position, string Name);
-	void ReturnMed(int position, int amount);
+	bool ReturnMed(int position, int amount);
 	void MedHistory(int position);
 	void RestockMed(int position, string Name);
 private:
