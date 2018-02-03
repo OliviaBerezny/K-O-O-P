@@ -1,1 +1,13 @@
-﻿  Haxathon.vcxproj -> C:\Users\Olivia\K-O-O-P\Haxathon\Debug\Haxathon.exe
+﻿  Source.cpp
+c:\users\olivia\k-o-o-p\haxathon\haxathon\source.cpp(15): warning C4326: return type of 'main' should be 'int' instead of 'void'
+c:\users\olivia\k-o-o-p\haxathon\haxathon\source.cpp(54): warning C4018: '>': signed/unsigned mismatch
+c:\users\olivia\k-o-o-p\haxathon\haxathon\source.cpp(130): warning C4018: '<': signed/unsigned mismatch
+c:\users\olivia\k-o-o-p\haxathon\haxathon\source.cpp(148): warning C4018: '<': signed/unsigned mismatch
+c:\users\olivia\k-o-o-p\haxathon\haxathon\source.cpp(167): warning C4018: '<': signed/unsigned mismatch
+c:\users\olivia\k-o-o-p\haxathon\haxathon\source.cpp(134): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\time.h(475): note: see declaration of 'ctime'
+c:\users\olivia\k-o-o-p\haxathon\haxathon\source.cpp(152): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\time.h(475): note: see declaration of 'ctime'
+c:\users\olivia\k-o-o-p\haxathon\haxathon\source.cpp(171): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\time.h(475): note: see declaration of 'ctime'
+  Haxathon.vcxproj -> C:\Users\Olivia\K-O-O-P\Haxathon\Debug\Haxathon.exe

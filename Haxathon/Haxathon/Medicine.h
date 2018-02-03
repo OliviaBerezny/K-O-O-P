@@ -14,10 +14,14 @@ public:
 	Medicine(string name, int quantity, string date);
 	string name;
 	int Quantity;
-	vector<string> History;
+	int CurrentQ;
+	vector<string> HistoryN;
+	vector<int> HistoryQ;
 	string Expiration;
-	void ListDetails();
 	bool flag;
+	void ShowHistory();
+	void Restock();
+	void ListDetails();
 	private:
 
 };
