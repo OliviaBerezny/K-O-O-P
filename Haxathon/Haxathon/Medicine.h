@@ -1,18 +1,24 @@
+#ifndef Medicine_H
+#define Medicine_H
+
 #include <iostream>
 #include <vector>
 #include <string>
-#include <ctime>
 
 using namespace std;
 
 class Medicine
 {
 public:
-	string Name;
+	Medicine();
+	Medicine(string name, int quantity, string date);
+	string name;
 	int Quantity;
 	vector<string> History;
-	time_t Expiration;
-
+	string Expiration;
+	void ListDetails();
+	bool flag;
 	private:
 
 };
+#endif
