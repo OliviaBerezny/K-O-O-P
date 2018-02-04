@@ -1,3 +1,12 @@
+# we are doing things
+
+
+
+
+
+
+
+
 # K-O-O-P
 ## Kool Object Oriented Programmers
 
