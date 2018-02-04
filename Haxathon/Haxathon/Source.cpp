@@ -230,25 +230,31 @@ void main()
 					{
 					case 01:
 						RetFlag = S1.ReturnMed(TempInt2, TempInt3);
-						History[ID].push_back("Returned contents to shelf 01");
+						if (RetFlag) History[ID].push_back("Returned contents to shelf 01");
 						break;
 					case 02:
 						RetFlag = S2.ReturnMed(TempInt2, TempInt3);
-						History[ID].push_back("Returned contents to shelf 02");
+						if (RetFlag) History[ID].push_back("Returned contents to shelf 02");
 						break;
 					case 11:
 						RetFlag = S3.ReturnMed(TempInt2, TempInt3);
-						History[ID].push_back("Returned contents to shelf 11");
+						if (RetFlag) History[ID].push_back("Returned contents to shelf 11");
 						break;
 					case 12:
 						RetFlag = S4.ReturnMed(TempInt2, TempInt3);
-						History[ID].push_back("Returned contents to shelf 12");
+						if (RetFlag) History[ID].push_back("Returned contents to shelf 12");
 						break;
 					default:
+						cout << "Wrong ID" << endl;
+						RetFlag = 0;
 						break;
 					}
-					time(&TempTime);
-					HTimes[ID].push_back(TempTime);
+					if (RetFlag) time(&TempTime);
+					if (RetFlag) HTimes[ID].push_back(TempTime);
+					else
+					{
+						cout << "Error with function" << endl;
+					}
 					break;
 				}
 				case 2:
@@ -279,11 +285,13 @@ void main()
 						History[ID].push_back("Added to shelf 12");
 						break;
 					default:
+						cout << "Wrong ID" << endl;
+						RetFlag = 0;
 						break;
 					}
-					time(&TempTime);
-					HTimes[ID].push_back(TempTime);
-
+					if (RetFlag) time(&TempTime);
+					if (RetFlag) HTimes[ID].push_back(TempTime);
+					else { cout << "Error with function" << endl; }
 					break;
 				}
 			}
@@ -298,30 +306,34 @@ void main()
 				switch (TempInt)
 				{
 				case 01:
-					S1.RemoveMed(TempInt2, Names[ID]);
-					History[ID].push_back("Removed contents of shelf 01");
+					RetFlag = S1.RemoveMed(TempInt2, Names[ID]);
+					if (RetFlag) History[ID].push_back("Removed contents of shelf 01");
 					break;
 				case 02:
-					S2.RemoveMed(TempInt2, Names[ID]);
-					History[ID].push_back("Removed contents of shelf 02");
+					RetFlag = S2.RemoveMed(TempInt2, Names[ID]);
+					if (RetFlag) History[ID].push_back("Removed contents of shelf 02");
 					break;
 				case 11:
-					S3.RemoveMed(TempInt2, Names[ID]);
-					History[ID].push_back("Removed contents of shelf 11");
+					RetFlag = S3.RemoveMed(TempInt2, Names[ID]);
+					if (RetFlag) History[ID].push_back("Removed contents of shelf 11");
 					break;
 				case 12:
-					S4.RemoveMed(TempInt2, Names[ID]);
-					History[ID].push_back("Removed contents of shelf 12");
+					RetFlag = S4.RemoveMed(TempInt2, Names[ID]);
+					if (RetFlag) History[ID].push_back("Removed contents of shelf 12");
 					break;
 				default:
+					cout << "Wrong ID" << endl;
+					RetFlag = 0;
 					break;
 				}
-				time(&TempTime);
-				HTimes[ID].push_back(TempTime);
+				if (RetFlag) time(&TempTime);
+				if (RetFlag) HTimes[ID].push_back(TempTime);
+				else { cout << "Error with function" << endl; }
 				break;
 			}	                   
 			case 4: // View contents
 			{
+				RetFlag = 1;
 				cout << "Enter Shelf ID" << endl;
 				cin >> TempInt;
 				switch (TempInt)
@@ -343,17 +355,20 @@ void main()
 					History[ID].push_back("Viewed contents of shelf 12");
 					break;
 				default:
+					cout << "Wrong ID" << endl;
+					RetFlag = 0;
 					break;
 				}
-				time(&TempTime);
-				HTimes[ID].push_back(TempTime);
+				if (RetFlag) time(&TempTime);
+				if (RetFlag) HTimes[ID].push_back(TempTime);
+				else { cout << "Error with function" << endl; }
 				break;
 			}
-
 			case 5: // Medicine History
 			{
 				if(ID != 0)
 				{
+					cout << "Invalid" << endl;
 					break;
 				}
 				cout << "Enter Shelf ID" << endl;
@@ -363,20 +378,28 @@ void main()
 				switch (TempInt)
 				{
 				case 01:
-					S1.MedHistory(TempInt2);
+					RetFlag = S1.MedHistory(TempInt2);
 					break;
 				case 02:
-					S2.MedHistory(TempInt2);
+					RetFlag = S2.MedHistory(TempInt2);
 					break;
 				case 11:
-					S3.MedHistory(TempInt2);
+					RetFlag = S3.MedHistory(TempInt2);
 					break;
 				case 12:
-					S4.MedHistory(TempInt2);
+					RetFlag = S4.MedHistory(TempInt2);
 					break;
 				default:
+					cout << "Wrong ID" << endl;
+					RetFlag = 0;
 					break;
 				}
+				if (RetFlag)
+				{
+
+				}
+				else 
+				{ cout << "Error with function" << endl; }
 				break;
 			}
 			
@@ -384,6 +407,7 @@ void main()
 			{
 				if (ID != 0)
 				{
+					cout << "Invalid" << endl;
 					break;
 				} 
 				cout << "Enter Shelf ID" << endl;
@@ -393,19 +417,29 @@ void main()
 				switch (TempInt)
 				{
 				case 01:
-					S1.RestockMed(TempInt2, Names[ID]);
+					RetFlag = S1.RestockMed(TempInt2, Names[ID]);
 					break;
 				case 02:
-					S2.RestockMed(TempInt2, Names[ID]);
+					RetFlag = S2.RestockMed(TempInt2, Names[ID]);
 					break;
 				case 11:
-					S3.RestockMed(TempInt2, Names[ID]);
+					RetFlag = S3.RestockMed(TempInt2, Names[ID]);
 					break;
 				case 12:
-					S4.RestockMed(TempInt2, Names[ID]);
+					RetFlag = S4.RestockMed(TempInt2, Names[ID]);
 					break;
 				default:
+					cout << "Wrong ID" << endl;
+					RetFlag = 0;
 					break;
+				}
+				if (RetFlag)
+				{
+
+				}
+				else
+				{
+					cout << "Error with function" << endl;
 				}
 				break;
 			}
@@ -415,6 +449,12 @@ void main()
 				HTimes[ID].push_back(TempTime);
 				History[ID].push_back("Logged Out");
 				cout << "Logging Out... \n \n \n" << endl;
+				break;
+			}
+			default:
+			{
+				cout << "Invalid" << endl;
+				RetFlag = 0;
 				break;
 			}
 			}

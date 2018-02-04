@@ -20,10 +20,10 @@ public:
 	float MaxStorage;
 	void AddMedicine(Medicine);
 	void ListContents();
-	void RemoveMed(int position, string Name);
+	bool RemoveMed(int position, string Name);
 	bool ReturnMed(int position, int amount);
-	void MedHistory(int position);
-	void RestockMed(int position, string Name);
+	bool MedHistory(int position);
+	bool RestockMed(int position, string Name);
 private:
 
 };
